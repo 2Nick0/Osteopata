@@ -5,24 +5,24 @@ on:
     branches: [main]
 
 jobs:
-  build-and-push:
+  build-web-image:
     runs-on: ubuntu-latest
 
-  steps:
-    - uses: actions/checkout@v4.1.1
-      name: Checkout code
+    steps:
+      - uses: actions/checkout@v4.1.1
+        name: Checkout code
 
-    - uses: Saionaro/extract-package-version@v1.2.1
-      name: Extract version
-      id: extract_version
+      - uses: Saionaro/extract-package-version@v1.2.1
+        name: Extract version
+        id: extract_version
 
-    - uses: mr-smithers-excellent/docker-build-push@v6.3
-      name: Build & push image
-      with:
-        image: 2nick0/osteo
-        tags: ${{steps.extract_version.outputs.version}}, latest
-        registry: docker.io
-        dockerfile: ./Dockerfile
-        directory: .
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+      - uses: mr-smithers-excellent/docker-build-push@v6.3
+        name: Build & Push image
+        with:
+          image: 2nick0/osteo
+          tags: ${{ steps.extract_version.outputs.version }}, latest
+          registry: docker.io
+          dockerfile: ./Dockerfile
+          directory: .
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
