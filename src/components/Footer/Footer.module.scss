@@ -1,0 +1,25 @@
+.Footer {
+  background-color: black;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 25px;
+
+  > h3 {
+    margin-left: 15px;
+    /*&:last-of-type {
+      color: red;
+    }*/
+    /*&.custom {
+      color: red;
+      &_scss {
+        border: 2px solid blue;
+      }
+    }*/
+  }
+}
+.footer_content {
+  margin-left: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -1,0 +1,26 @@
+.loghi {
+  img {
+    margin-top: 30px;
+    &:hover {
+      animation: imagesHover;
+      animation-duration: 1s;
+      cursor: pointer;
+      height: 60px;
+      width: 60px;
+    }
+  }
+  > span {
+    margin-left: 12px;
+    font-size: 20px;
+  }
+}
+@keyframes imagesHover {
+  from {
+    height: 50px;
+    width: 50px;
+  }
+  to {
+    height: 60px;
+    width: 60px;
+  }
+}
